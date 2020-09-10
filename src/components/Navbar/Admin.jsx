@@ -17,7 +17,9 @@ export default function Admin(props) {
             </div>
             <Link>
                 <li>
-                    <Name>Hallo, {props.fullname}</Name>
+                    <Url to="/profile">
+                        <Name>Hallo, {props.fullname}</Name>
+                    </Url>
                 </li>
                 <li>
                     <span

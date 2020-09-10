@@ -2,8 +2,17 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/store";
-import { Home, Login, Register, ForgetPassword } from "./pages";
+import {
+    Home,
+    Login,
+    Register,
+    ForgetPassword,
+    Profile,
+    EditProfile,
+    Deposit,
+} from "./pages";
 import { Navbar } from "./components";
+import { PrivateRoute } from "./helpers";
 
 function App() {
     return (
@@ -20,6 +29,15 @@ function App() {
                     <Route exact path="/register">
                         <Register />
                     </Route>
+                    <PrivateRoute exact path="/profile">
+                        <Profile />
+                    </PrivateRoute>
+                    <PrivateRoute exact path="/edit-profile">
+                        <EditProfile />
+                    </PrivateRoute>
+                    <PrivateRoute exact path="/deposit">
+                        <Deposit />
+                    </PrivateRoute>
                     <Route exact path="/forget-password">
                         <ForgetPassword />
                     </Route>

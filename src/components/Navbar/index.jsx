@@ -7,7 +7,7 @@ import Member from "./Member";
 
 export default function Navbar() {
     const dispatch = useDispatch();
-    const loggedInUser = useSelector((state) => state.members.loggedInUser);
+    const member = useSelector((state) => state.members.loggedInMember);
 
     useEffect(() => {
         dispatch(fetchMember());
@@ -15,12 +15,12 @@ export default function Navbar() {
 
     return (
         <div>
-            {loggedInUser.isAdmin === undefined ? (
+            {member.isAdmin === undefined ? (
                 <Guest />
-            ) : loggedInUser.isAdmin ? (
-                <Admin fullname={loggedInUser.fullname} />
+            ) : member.isAdmin ? (
+                <Admin fullname={member.fullname} />
             ) : (
-                <Member fullname={loggedInUser.fullname} />
+                <Member fullname={member.fullname} />
             )}
         </div>
     );
