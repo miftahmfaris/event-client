@@ -1,9 +1,12 @@
 import React from "react";
+import { Carousel, Tagline, Event } from "../components";
 
 export default function Home() {
     return (
         <div>
-            <h1>Halo</h1>
+            <Carousel />
+            <Tagline />
+            <Event />
         </div>
     );
 }
