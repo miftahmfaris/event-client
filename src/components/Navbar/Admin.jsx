@@ -22,6 +22,9 @@ export default function Admin(props) {
                     </Url>
                 </li>
                 <li>
+                    <Url to="/dashboard-deposit">Deposit</Url>
+                </li>
+                <li>
                     <span
                         style={{ cursor: "pointer" }}
                         onClick={() => dispatch(logout(history))}

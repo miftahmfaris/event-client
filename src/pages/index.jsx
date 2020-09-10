@@ -1,3 +1,4 @@
+export { default as DashboardDeposit } from "./DashboardDeposit";
 export { default as Deposit } from "./Deposit";
 export { default as EditProfile } from "./EditProfile";
 export { default as ForgetPassword } from "./ForgetPassword";

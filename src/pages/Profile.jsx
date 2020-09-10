@@ -1,9 +1,10 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Section, FormCenter } from "../components/styled";
+import { fetchMember } from "../redux/actions";
 
 const MemberProfile = styled.div`
     display: flex;
@@ -48,7 +49,12 @@ const Additional = styled.div`
 `;
 
 export default function Profile() {
+    const dispatch = useDispatch();
     const member = useSelector((state) => state.members.loggedInMember);
+
+    useEffect(() => {
+        dispatch(fetchMember());
+    }, [dispatch]);
 
     return (
         <Section>

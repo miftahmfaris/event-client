@@ -10,9 +10,10 @@ import {
     Profile,
     EditProfile,
     Deposit,
+    DashboardDeposit,
 } from "./pages";
 import { Navbar } from "./components";
-import { PrivateRoute } from "./helpers";
+import { PrivateRoute, AdminRoute } from "./helpers";
 
 function App() {
     return (
@@ -38,6 +39,9 @@ function App() {
                     <PrivateRoute exact path="/deposit">
                         <Deposit />
                     </PrivateRoute>
+                    <AdminRoute exact path="/dashboard-deposit">
+                        <DashboardDeposit />
+                    </AdminRoute>
                     <Route exact path="/forget-password">
                         <ForgetPassword />
                     </Route>
