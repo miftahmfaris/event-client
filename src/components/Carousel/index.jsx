@@ -22,8 +22,7 @@ export default function Carousel() {
         slidesPerView: 3,
         spaceBetween: 30,
         centeredSlides: true,
-        infinite: true,
-        freeMode: true,
+        loop: true,
         navigation: {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
