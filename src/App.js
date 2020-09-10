@@ -4,7 +4,6 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import { Home } from "./pages";
 import { Navbar } from "./components";
-import { PrivateRoute } from "./helpers";
 
 function App() {
     return (
