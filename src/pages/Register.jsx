@@ -7,7 +7,7 @@ export default function Register() {
         <Section>
             <FormCenter>
                 <div>
-                    <h1>Register Page</h1>
+                    <h1>Register</h1>
                     <FormRegister />
                 </div>
             </FormCenter>

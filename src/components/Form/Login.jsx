@@ -1,10 +1,12 @@
 import React from "react";
 import { Field, Form, Formik } from "formik";
-import { TextInput } from "../styled";
-import { Button } from "react-bootstrap";
-import { LoginSchema } from "../validation";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { Button } from "react-bootstrap";
+import { Link, useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { TextInput } from "../styled";
+import { LoginSchema } from "../validation";
+import { memberLogin } from "../../redux/actions";
 
 const Div = styled.div`
     display: flex;
@@ -12,6 +14,9 @@ const Div = styled.div`
 `;
 
 export default function Login() {
+    const dispatch = useDispatch();
+    const history = useHistory();
+
     return (
         <Formik
             initialValues={{
@@ -20,10 +25,7 @@ export default function Login() {
             }}
             validationSchema={LoginSchema}
             onSubmit={(values, actions) => {
-                setTimeout(() => {
-                    alert(JSON.stringify(values, null, 2));
-                    actions.setSubmitting(false);
-                }, 1000);
+                dispatch(memberLogin(values, history));
             }}
         >
             {() => (
