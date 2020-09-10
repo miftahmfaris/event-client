@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/store";
-import { Home } from "./pages";
+import { Home, Login } from "./pages";
 import { Navbar } from "./components";
 
 function App() {
@@ -13,6 +13,9 @@ function App() {
                 <Switch>
                     <Route exact path="/">
                         <Home />
+                    </Route>
+                    <Route exact path="/login">
+                        <Login />
                     </Route>
                     <Route path="*">
                         <Home />

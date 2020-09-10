@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import { Section } from "../styled";
 import tagline from "../../assets/images/tagline.svg";
 
@@ -31,11 +30,6 @@ const Image = styled(Div)`
     }
 `;
 
-const Button = styled.span`
-    padding: 10px;
-    background: orange;
-`;
-
 export default function Tagline() {
     return (
         <Section>
@@ -49,9 +43,6 @@ export default function Tagline() {
                         Mulai dari acara musik, diskusi, workshop hingga online
                         webinar
                     </h3>
-                    <Button>
-                        <Link to="/event">Buat Event</Link>
-                    </Button>
                 </Div>
             </Container>
         </Section>
