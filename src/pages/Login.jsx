@@ -7,7 +7,7 @@ export default function Login() {
         <Section>
             <FormCenter>
                 <div>
-                    <h1>Login Page</h1>
+                    <h1>Login</h1>
                     <FormLogin />
                 </div>
             </FormCenter>

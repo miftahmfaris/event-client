@@ -14,6 +14,7 @@ const Container = styled.div`
 const Div = styled.div`
     width: 40%;
     margin: 0 20px;
+    display: flex;
     align-items: center;
     color: white;
 
@@ -38,11 +39,13 @@ export default function Tagline() {
                     <img src={tagline} alt="tagline" />
                 </Image>
                 <Div>
-                    <h2>Buat Event Online sekarang mudah loh!!!</h2>
-                    <h3>
-                        Mulai dari acara musik, diskusi, workshop hingga online
-                        webinar
-                    </h3>
+                    <div>
+                        <h2>Buat Event Online sekarang mudah loh!!!</h2>
+                        <h4>
+                            Mulai dari acara musik, diskusi, workshop hingga
+                            online webinar
+                        </h4>
+                    </div>
                 </Div>
             </Container>
         </Section>

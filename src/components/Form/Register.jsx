@@ -11,7 +11,7 @@ const Div = styled.div`
     justify-content: flex-end;
 `;
 
-export default function Login() {
+export default function Register() {
     return (
         <Formik
             initialValues={{

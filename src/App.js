@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/store";
-import { Home, Login, Register } from "./pages";
+import { Home, Login, Register, ForgetPassword } from "./pages";
 import { Navbar } from "./components";
 
 function App() {
@@ -19,6 +19,9 @@ function App() {
                     </Route>
                     <Route exact path="/register">
                         <Register />
+                    </Route>
+                    <Route exact path="/forget-password">
+                        <ForgetPassword />
                     </Route>
                     <Route path="*">
                         <Home />
