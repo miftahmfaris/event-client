@@ -17,9 +17,8 @@ const Link = styled.ul`
     }
 
     @media (max-width: 768px) {
-        li {
-            width: 100%;
-            text-align: center;
+        & {
+            padding: 10px 0;
         }
     }
 `;
