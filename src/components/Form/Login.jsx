@@ -2,7 +2,7 @@ import React from "react";
 import { Field, Form, Formik } from "formik";
 import { TextInput } from "../styled";
 import { Button } from "react-bootstrap";
-import { RegisterSchema } from "../validation";
+import { LoginSchema } from "../validation";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -18,7 +18,7 @@ export default function Login() {
                 email: "",
                 password: "",
             }}
-            validationSchema={RegisterSchema}
+            validationSchema={LoginSchema}
             onSubmit={(values, actions) => {
                 setTimeout(() => {
                     alert(JSON.stringify(values, null, 2));

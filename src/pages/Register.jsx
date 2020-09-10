@@ -1,9 +1,16 @@
-import React from 'react'
+import React from "react";
+import { FormRegister } from "../components";
+import { Section, FormCenter } from "../components/styled";
 
 export default function Register() {
     return (
-        <div>
-            
-        </div>
-    )
+        <Section>
+            <FormCenter>
+                <div>
+                    <h1>Register Page</h1>
+                    <FormRegister />
+                </div>
+            </FormCenter>
+        </Section>
+    );
 }
