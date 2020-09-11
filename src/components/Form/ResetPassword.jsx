@@ -21,7 +21,7 @@ export default function Register() {
     return (
         <Formik
             initialValues={{
-                fullname: "",
+                password: "",
                 passwordConfirmation: "",
             }}
             validationSchema={ResetPasswordSchema}
