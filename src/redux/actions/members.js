@@ -143,6 +143,68 @@ const fetchAllMember = () => async (dispatch) => {
     }
 };
 
+const createMember = (values, history) => async (dispatch) => {
+    try {
+        const url = `${process.env.REACT_APP_API_URL}/members`;
+        const options = {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json",
+            },
+            body: JSON.stringify(values),
+        };
+
+        const response = await fetch(url, options);
+        const result = await response.json();
+
+        if (response.status === 200) {
+            Swal.fire({
+                title: "Registration Success",
+                text: "Check your email for activation",
+                icon: "success",
+            });
+            history.push("/");
+        } else if (response.status === 403) {
+            Swal.fire({
+                title: `${result.message}`,
+                icon: "error",
+            });
+        }
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+const activation = (id) => async (dispatch) => {
+    try {
+        const url = `${process.env.REACT_APP_API_URL}/members/activation/${id}`;
+        const options = {
+            method: "PUT",
+            headers: {
+                "Content-type": "application/json",
+            },
+            body: JSON.stringify({ status: "ACTIVE" }),
+        };
+
+        const response = await fetch(url, options);
+        const result = await response.json();
+
+        if (response.status === 200) {
+            Swal.fire({
+                title: "Activation Success",
+                icon: "success",
+            });
+        } else if (response.status === 403) {
+            Swal.fire({
+                title: `${result.message}`,
+                icon: "error",
+            });
+        }
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 export {
     memberLogin,
     fetchMember,
@@ -152,4 +214,6 @@ export {
     updateMember,
     GET_MEMBER,
     fetchAllMember,
+    createMember,
+    activation,
 };

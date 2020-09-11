@@ -20,6 +20,7 @@ import {
     Order,
     DashboardOrder,
     DashboardOrderMember,
+    Activation,
 } from "./pages";
 import { Navbar } from "./components";
 import { PrivateRoute, AdminRoute } from "./helpers";
@@ -84,6 +85,9 @@ function App() {
                     <PrivateRoute exact path="/dashboard-order/:id">
                         <DashboardOrderMember />
                     </PrivateRoute>
+                    <Route exact path="/activation/:id">
+                        <Activation />
+                    </Route>
                     <Route path="*">
                         <Home />
                     </Route>

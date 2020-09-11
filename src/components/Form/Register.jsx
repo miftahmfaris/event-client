@@ -3,8 +3,10 @@ import { Field, Form, Formik } from "formik";
 import { TextInput } from "../styled";
 import { Button } from "react-bootstrap";
 import { RegisterSchema } from "../validation";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { createMember } from "../../redux/actions/members";
 
 const Div = styled.div`
     display: flex;
@@ -12,6 +14,9 @@ const Div = styled.div`
 `;
 
 export default function Register() {
+    const dispatch = useDispatch();
+    const history = useHistory();
+
     return (
         <Formik
             initialValues={{
@@ -22,10 +27,7 @@ export default function Register() {
             }}
             validationSchema={RegisterSchema}
             onSubmit={(values, actions) => {
-                setTimeout(() => {
-                    alert(JSON.stringify(values, null, 2));
-                    actions.setSubmitting(false);
-                }, 1000);
+                dispatch(createMember(values, history));
             }}
         >
             {() => (

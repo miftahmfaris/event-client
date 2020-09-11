@@ -1,3 +1,4 @@
+export { default as Activation } from "./Activation";
 export { default as AddEvent } from "./AddEvent";
 export { default as DashboardDeposit } from "./DashboardDeposit";
 export { default as DashboardDepositMember } from "./DashboardDepositMember";
