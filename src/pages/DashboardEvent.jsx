@@ -1,8 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { ListEvent } from "../components";
-import { Section, FormCenter, AddButton } from "../components/styled";
+import { ListEvent, FormSearch, FormSort } from "../components";
+import {
+    Section,
+    FormCenter,
+    Action,
+    SectionFilter,
+    SectionButton,
+} from "../components/styled";
 import { Button } from "react-bootstrap";
 
 const Container = styled(FormCenter)`
@@ -17,11 +23,20 @@ export default function DashboardEvent() {
             <Container>
                 <div>
                     <h1>Event List</h1>
-                    <AddButton>
-                        <Button variant="primary">
-                            <Link to="/add-event">Add Event</Link>
-                        </Button>
-                    </AddButton>
+                    <Action>
+                        <SectionFilter>
+                            <FormSearch service="events" action="GET_EVENT" />
+                            <FormSort service="events" action="GET_EVENT" />
+                        </SectionFilter>
+                        <SectionButton>
+                            <Button variant="primary">
+                                <Link to="/event">List Event</Link>
+                            </Button>
+                            <Button variant="primary">
+                                <Link to="/add-event">Add Event</Link>
+                            </Button>
+                        </SectionButton>
+                    </Action>
                     <ListEvent />
                 </div>
             </Container>

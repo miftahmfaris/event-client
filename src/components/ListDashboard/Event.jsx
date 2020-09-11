@@ -3,6 +3,7 @@ import { Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchEvent } from "../../redux/actions";
 import { Button } from "react-bootstrap";
+import moment from "moment";
 
 export default function Deposit() {
     const dispatch = useDispatch();
@@ -18,7 +19,6 @@ export default function Deposit() {
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Status</th>
                     <th>Image</th>
                     <th>Price</th>
                     <th>Publish Date</th>
@@ -35,11 +35,20 @@ export default function Deposit() {
                             <tr key={item._id}>
                                 <td>{item._id}</td>
                                 <td>{item.name}</td>
-                                <td>{item.status}</td>
-                                <td>{item.Image}</td>
-                                <td>{item.Price}</td>
-                                <td>{item.startAt}</td>
-                                <td>{item.endAt}</td>
+                                <td>
+                                    <img
+                                        style={{ width: "100px" }}
+                                        src={item.image}
+                                        alt="image_event"
+                                    />
+                                </td>
+                                <td>{item.price}</td>
+                                <td>
+                                    {moment(item.startAt).format("DD-MM-YYYY")}
+                                </td>
+                                <td>
+                                    {moment(item.endAt).format("DD-MM-YYYY")}
+                                </td>
                                 <td>{item.createdBy}</td>
                                 <td>{item.updatedBy}</td>
                                 <td>
