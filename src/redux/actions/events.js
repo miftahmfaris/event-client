@@ -27,7 +27,7 @@ const addEvent = (formData, history) => async (dispatch) => {
                 icon: "success",
             });
             history.push("/profile");
-        } else if (response.status === 403) {
+        } else if (response.status !== 200) {
             Swal.fire({
                 title: `${result.message}`,
                 icon: "error",
@@ -168,7 +168,7 @@ const updateEvent = (formData, id, history) => async (dispatch) => {
                 icon: "success",
             });
             history.push("/events");
-        } else if (response.status === 403) {
+        } else if (response.status !== 200) {
             Swal.fire({
                 title: `${result.message}`,
                 icon: "error",

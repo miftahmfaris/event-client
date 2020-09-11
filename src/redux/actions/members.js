@@ -50,7 +50,7 @@ const memberLogin = (formData, history) => async (dispatch) => {
             localStorage.setItem("token", result.result);
             dispatch(fetchMember());
             history.push("/");
-        } else if (response.status === 403) {
+        } else if (response.status !== 200) {
             Swal.fire({
                 title: `${result.message}`,
                 icon: "error",
@@ -107,7 +107,7 @@ const updateMember = (formData, history) => async (dispatch) => {
             });
             dispatch(fetchMember());
             history.push("/profile");
-        } else if (response.status === 403) {
+        } else if (response.status !== 200) {
             Swal.fire({
                 title: `${result.message}`,
                 icon: "error",
@@ -164,7 +164,7 @@ const createMember = (values, history) => async (dispatch) => {
                 icon: "success",
             });
             history.push("/");
-        } else if (response.status === 403) {
+        } else if (response.status !== 200) {
             Swal.fire({
                 title: `${result.message}`,
                 icon: "error",
@@ -194,7 +194,7 @@ const activation = (id) => async (dispatch) => {
                 title: "Activation Success",
                 icon: "success",
             });
-        } else if (response.status === 403) {
+        } else if (response.status !== 200) {
             Swal.fire({
                 title: `${result.message}`,
                 icon: "error",
@@ -225,7 +225,7 @@ const forgetPassword = (values) => async (dispatch) => {
                 text: "Please check you email",
                 icon: "success",
             });
-        } else if (response.status === 403) {
+        } else if (response.status !== 200) {
             Swal.fire({
                 title: `${result.message}`,
                 icon: "error",
@@ -256,7 +256,7 @@ const resetPassword = (values, id, history) => async (dispatch) => {
                 icon: "success",
             });
             history.push("/login");
-        } else if (response.status === 403) {
+        } else if (response.status !== 200) {
             Swal.fire({
                 title: `${result.message}`,
                 icon: "error",

@@ -30,7 +30,7 @@ const addOrder = (formData, history) => async (dispatch, getState) => {
                         icon: "success",
                     });
                     history.push("/orders");
-                } else if (response.status === 403) {
+                } else if (response.status !== 200) {
                     Swal.fire({
                         title: `${result.message}`,
                         icon: "error",
@@ -53,7 +53,7 @@ const addOrder = (formData, history) => async (dispatch, getState) => {
                     icon: "success",
                 });
                 history.push("/orders");
-            } else if (response.status === 403) {
+            } else if (response.status !== 200) {
                 Swal.fire({
                     title: `${result.message}`,
                     icon: "error",

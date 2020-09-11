@@ -27,7 +27,7 @@ const addDeposit = (formData, history) => async (dispatch) => {
                 icon: "success",
             });
             history.push("/profile");
-        } else if (response.status === 403) {
+        } else if (response.status !== 200) {
             Swal.fire({
                 title: `${result.message}`,
                 icon: "error",
