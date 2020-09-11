@@ -54,30 +54,14 @@ export default function Deposit() {
                                 <td>{item.updatedBy}</td>
                                 <td>
                                     {
-                                        <React.Fragment>
-                                            <Link to={`event/${item._id}`}>
-                                                <Button
-                                                    variant="success"
-                                                    style={{ margin: "5px" }}
-                                                >
-                                                    Update
-                                                </Button>
-                                            </Link>
+                                        <Link to={`event/${item._id}`}>
                                             <Button
-                                                variant="danger"
+                                                variant="success"
                                                 style={{ margin: "5px" }}
-                                                // onClick={() =>
-                                                //     dispatch(
-                                                //         approvalDeposit({
-                                                //             status: "REJECTED",
-                                                //             id: item._id,
-                                                //         })
-                                                //     )
-                                                // }
                                             >
-                                                Delete
+                                                Update
                                             </Button>
-                                        </React.Fragment>
+                                        </Link>
                                     }
                                 </td>
                             </tr>
