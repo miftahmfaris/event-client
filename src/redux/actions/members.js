@@ -205,6 +205,68 @@ const activation = (id) => async (dispatch) => {
     }
 };
 
+const forgetPassword = (values) => async (dispatch) => {
+    try {
+        const url = `${process.env.REACT_APP_API_URL}/members/forget-password`;
+        const options = {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json",
+            },
+            body: JSON.stringify(values),
+        };
+
+        const response = await fetch(url, options);
+        const result = await response.json();
+
+        if (response.status === 200) {
+            Swal.fire({
+                title: "Forget Password is Success",
+                text: "Please check you email",
+                icon: "success",
+            });
+        } else if (response.status === 403) {
+            Swal.fire({
+                title: `${result.message}`,
+                icon: "error",
+            });
+        }
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+const resetPassword = (values, id, history) => async (dispatch) => {
+    try {
+        const url = `${process.env.REACT_APP_API_URL}/members/forget-password/${id}`;
+        const options = {
+            method: "PUT",
+            headers: {
+                "Content-type": "application/json",
+            },
+            body: JSON.stringify(values),
+        };
+
+        const response = await fetch(url, options);
+        const result = await response.json();
+
+        if (response.status === 200) {
+            Swal.fire({
+                title: "Reset Password is Success",
+                icon: "success",
+            });
+            history.push("/login");
+        } else if (response.status === 403) {
+            Swal.fire({
+                title: `${result.message}`,
+                icon: "error",
+            });
+        }
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 export {
     memberLogin,
     fetchMember,
@@ -216,4 +278,6 @@ export {
     fetchAllMember,
     createMember,
     activation,
+    forgetPassword,
+    resetPassword,
 };

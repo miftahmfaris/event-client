@@ -2,43 +2,48 @@ import React from "react";
 import { Field, Form, Formik } from "formik";
 import { TextInput } from "../styled";
 import { Button } from "react-bootstrap";
-import { ForgetPasswordSchema } from "../validation";
-import { Link } from "react-router-dom";
+import { ResetPasswordSchema } from "../validation";
+import { Link, useParams, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
-import { forgetPassword } from "../../redux/actions";
+import { resetPassword } from "../../redux/actions/members";
 
 const Div = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
 `;
 
-export default function ForgetPassword() {
+export default function Register() {
     const dispatch = useDispatch();
+    const { id } = useParams();
+    const history = useHistory();
 
     return (
         <Formik
             initialValues={{
-                email: "",
+                fullname: "",
+                passwordConfirmation: "",
             }}
-            validationSchema={ForgetPasswordSchema}
+            validationSchema={ResetPasswordSchema}
             onSubmit={(values, actions) => {
-                dispatch(forgetPassword(values));
+                dispatch(resetPassword(values, id, history));
             }}
         >
             {() => (
                 <Form>
                     <Field
-                        name="email"
-                        placeholder="Input your email here"
+                        name="password"
+                        type="password"
+                        placeholder="Input your password here"
+                        component={TextInput}
+                    />
+                    <Field
+                        name="passwordConfirmation"
+                        type="password"
+                        placeholder="Re-input password here"
                         component={TextInput}
                     />
                     <Div>
-                        <p>
-                            <Link to="/register">
-                                Don't Have Account? Register
-                            </Link>
-                        </p>
                         <p>
                             <Link to="/login">Have Account? Login</Link>
                         </p>

@@ -21,6 +21,7 @@ import {
     DashboardOrder,
     DashboardOrderMember,
     Activation,
+    ResetPassword,
 } from "./pages";
 import { Navbar } from "./components";
 import { PrivateRoute, AdminRoute } from "./helpers";
@@ -87,6 +88,9 @@ function App() {
                     </PrivateRoute>
                     <Route exact path="/activation/:id">
                         <Activation />
+                    </Route>
+                    <Route exact path="/forget-password/:id">
+                        <ResetPassword />
                     </Route>
                     <Route path="*">
                         <Home />

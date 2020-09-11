@@ -10,6 +10,7 @@ export { default as FormOrder } from "./Form/Order";
 export { default as FormRegister } from "./Form/Register";
 export { default as FormForgetPassword } from "./Form/ForgetPassword";
 export { default as FormSearch } from "./Form/Search";
+export { default as FormResetPassword } from "./Form/ResetPassword";
 export { default as SortEvent } from "./Form/SortEvent";
 export { default as SortMember } from "./Form/SortMember";
 export { default as SortOrder } from "./Form/SortOrder";
