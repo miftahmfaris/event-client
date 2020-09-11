@@ -25,10 +25,10 @@ export default function SortMember(props) {
                         }}
                     >
                         <option value="createdAt-desc">Sort</option>
-                        <option value="price-asc">Price Low - High</option>
-                        <option value="price-desc">Price High - Low</option>
-                        <option value="startAt-asc">Closer Event</option>
-                        <option value="endAt-desc">Longest Expired</option>
+                        <option value="fullname-asc">Name A - Z</option>
+                        <option value="fullname-desc">Name Z - A</option>
+                        <option value="balance-asc">Balance Lowest</option>
+                        <option value="balance-desc">Balance Highest</option>
                     </Field>
                 </Form>
             )}

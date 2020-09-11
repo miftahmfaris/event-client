@@ -1,6 +1,7 @@
 export { default as Carousel } from "./Carousel";
 export { default as Event } from "./Event";
 export { default as FormDeposit } from "./Form/Deposit";
+export { default as FormEditEvent } from "./Form/EditEvent";
 export { default as FormEditProfile } from "./Form/EditProfile";
 export { default as FormEvent } from "./Form/Event";
 export { default as FormLogin } from "./Form/Login";

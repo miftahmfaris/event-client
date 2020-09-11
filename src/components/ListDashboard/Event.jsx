@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchEvent } from "../../redux/actions";
 import { Button } from "react-bootstrap";
 import moment from "moment";
+import { Link } from "react-router-dom";
 
 export default function Deposit() {
     const dispatch = useDispatch();
@@ -54,6 +55,14 @@ export default function Deposit() {
                                 <td>
                                     {
                                         <React.Fragment>
+                                            <Link to={`event/${item._id}`}>
+                                                <Button
+                                                    variant="success"
+                                                    style={{ margin: "5px" }}
+                                                >
+                                                    Update
+                                                </Button>
+                                            </Link>
                                             <Button
                                                 variant="danger"
                                                 style={{ margin: "5px" }}
@@ -67,20 +76,6 @@ export default function Deposit() {
                                                 // }
                                             >
                                                 Delete
-                                            </Button>
-                                            <Button
-                                                variant="success"
-                                                style={{ margin: "5px" }}
-                                                // onClick={() =>
-                                                //     dispatch(
-                                                //         approvalDeposit({
-                                                //             status: "APPROVED",
-                                                //             id: item._id,
-                                                //         })
-                                                //     )
-                                                // }
-                                            >
-                                                Update
                                             </Button>
                                         </React.Fragment>
                                     }

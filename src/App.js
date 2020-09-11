@@ -15,6 +15,7 @@ import {
     DashboardEvent,
     AddEvent,
     DashboardMember,
+    EditEvent,
 } from "./pages";
 import { Navbar } from "./components";
 import { PrivateRoute, AdminRoute } from "./helpers";
@@ -60,6 +61,9 @@ function App() {
                     </AdminRoute>
                     <AdminRoute exact path="/profile/:id">
                         <Profile />
+                    </AdminRoute>
+                    <AdminRoute exact path="/event/:id">
+                        <EditEvent />
                     </AdminRoute>
                     <Route exact path="/forget-password">
                         <ForgetPassword />
