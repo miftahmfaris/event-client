@@ -119,7 +119,7 @@ const fetchOrderByMember = (id) => async (dispatch) => {
     }
 };
 
-const approvalOrder = ({ status, id }) => async (dispatch) => {
+const approvalOrder = ({ id, ...values }) => async (dispatch) => {
     try {
         const token = localStorage.getItem("token");
         const url = `${process.env.REACT_APP_API_URL}/orders/${id}`;
@@ -129,7 +129,7 @@ const approvalOrder = ({ status, id }) => async (dispatch) => {
                 "Content-type": "application/json",
                 Authorization: `Bearer ${token}`,
             },
-            body: JSON.stringify({ status, id }),
+            body: JSON.stringify({ ...values }),
         };
 
         const response = await fetch(url, options);
@@ -137,7 +137,9 @@ const approvalOrder = ({ status, id }) => async (dispatch) => {
 
         if (response.status === 200) {
             Swal.fire({
-                title: `Order is ${status}`,
+                title: `Updated to ${
+                    values.status || values.participantStatus
+                }`,
                 icon: "success",
             });
 

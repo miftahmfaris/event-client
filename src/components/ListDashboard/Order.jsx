@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Table, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { approvalOrder, fetchOrder } from "../../redux/actions";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 export default function Order() {
     const dispatch = useDispatch();
@@ -25,7 +25,9 @@ export default function Order() {
                     <th>Ticket Price</th>
                     <th>Event Location</th>
                     <th>Status</th>
+                    <th>Participation Status</th>
                     <th>Actions</th>
+                    <th>Participation Status Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,12 +37,19 @@ export default function Order() {
                             <tr key={item._id}>
                                 <td>{item._id}</td>
                                 <td>{item.memberID.fullname}</td>
-                                <td>{item.memberID.email}</td>
+                                <td>
+                                    <Link
+                                        to={`/dashboard-order/${item.memberID._id}`}
+                                    >
+                                        {item.memberID.email}
+                                    </Link>
+                                </td>
                                 <td>{item.ticketNumber}</td>
                                 <td>{item.eventID.name}</td>
                                 <td>{item.eventID.price}</td>
                                 <td>{item.eventID.location}</td>
                                 <td>{item.status}</td>
+                                <td>{item.participantStatus}</td>
                                 <td>
                                     {item.status === "PENDING" && (
                                         <React.Fragment>
@@ -71,6 +80,42 @@ export default function Order() {
                                                 }
                                             >
                                                 Approve
+                                            </Button>
+                                        </React.Fragment>
+                                    )}
+                                </td>
+                                <td>
+                                    {item.participantStatus === "PENDING" && (
+                                        <React.Fragment>
+                                            <Button
+                                                variant="danger"
+                                                style={{ margin: "5px" }}
+                                                onClick={() =>
+                                                    dispatch(
+                                                        approvalOrder({
+                                                            participantStatus:
+                                                                "ABSENT",
+                                                            id: item._id,
+                                                        })
+                                                    )
+                                                }
+                                            >
+                                                Absent
+                                            </Button>
+                                            <Button
+                                                variant="success"
+                                                style={{ margin: "5px" }}
+                                                onClick={() =>
+                                                    dispatch(
+                                                        approvalOrder({
+                                                            participantStatus:
+                                                                "PRESENT",
+                                                            id: item._id,
+                                                        })
+                                                    )
+                                                }
+                                            >
+                                                Present
                                             </Button>
                                         </React.Fragment>
                                     )}
