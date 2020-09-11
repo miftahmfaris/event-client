@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { ListDeposit } from "../components";
-import { Section, FormCenter, AddButton } from "../components/styled";
 import { Link } from "react-router-dom";
+import { ListDepositMember } from "../components";
+import { Section, FormCenter, AddButton } from "../components/styled";
 import { Button } from "react-bootstrap";
 
 const Container = styled(FormCenter)`
@@ -11,7 +11,7 @@ const Container = styled(FormCenter)`
     }
 `;
 
-export default function DashboardDeposit() {
+export default function DashboardDepositMember() {
     return (
         <Section>
             <Container>
@@ -22,7 +22,7 @@ export default function DashboardDeposit() {
                             <Link to="/add-deposit">Add Deposit</Link>
                         </Button>
                     </AddButton>
-                    <ListDeposit />
+                    <ListDepositMember />
                 </div>
             </Container>
         </Section>

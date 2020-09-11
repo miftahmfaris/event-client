@@ -1,6 +1,7 @@
 import Swal from "sweetalert2";
 
 const GET_DEPOSIT = "GET_DEPOSIT";
+const GET_DEPOSIT_BY_MEMBER = "GET_DEPOSIT_BY_MEMBER";
 
 const addDeposit = (formData, history) => async (dispatch) => {
     try {
@@ -104,4 +105,36 @@ const approvalDeposit = ({ status, id }) => async (dispatch) => {
     }
 };
 
-export { addDeposit, GET_DEPOSIT, fetchDeposit, approvalDeposit };
+const fetchDepositByMember = (id) => async (dispatch) => {
+    try {
+        const token = localStorage.getItem("token");
+        const url = `${process.env.REACT_APP_API_URL}/deposits/member/${id}`;
+        const options = {
+            method: "GET",
+            headers: {
+                "Content-type": "application/json",
+                Authorization: `Bearer ${token}`,
+            },
+        };
+
+        const response = await fetch(url, options);
+        const result = await response.json();
+
+        dispatch({ type: GET_DEPOSIT_BY_MEMBER, payload: result.data });
+    } catch (error) {
+        Swal.fire({
+            title: "Something Error",
+            text: "Contact Admin",
+            icon: "error",
+        });
+    }
+};
+
+export {
+    addDeposit,
+    GET_DEPOSIT,
+    fetchDeposit,
+    approvalDeposit,
+    fetchDepositByMember,
+    GET_DEPOSIT_BY_MEMBER,
+};

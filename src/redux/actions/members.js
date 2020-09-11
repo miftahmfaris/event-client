@@ -23,11 +23,7 @@ const fetchMember = () => async (dispatch) => {
 
         dispatch({ type: GET_LOGGED_IN_MEMBER, payload: result.data });
     } catch (error) {
-        Swal.fire({
-            title: "Something Error",
-            text: "Contact Admin",
-            icon: "error",
-        });
+        console.log(error);
     }
 };
 

@@ -78,7 +78,7 @@ export default function Profile() {
                                     Edit Profile
                                 </Button>
                             </Link>
-                            <Link to="/deposit">
+                            <Link to="/add-deposit">
                                 <Button variant="primary">Add Deposit</Button>
                             </Link>
                         </Additional>

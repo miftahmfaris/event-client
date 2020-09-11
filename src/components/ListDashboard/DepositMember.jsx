@@ -1,16 +1,17 @@
 import React, { useEffect } from "react";
 import { Table, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { fetchDeposit, approvalDeposit } from "../../redux/actions";
+import { approvalDeposit, fetchDepositByMember } from "../../redux/actions";
+import { useParams } from "react-router-dom";
 
-export default function Deposit() {
+export default function DepositMember() {
     const dispatch = useDispatch();
-    const deposit = useSelector((state) => state.deposits.allDeposit);
+    const deposit = useSelector((state) => state.deposits.memberDeposit);
+    const { id } = useParams();
 
     useEffect(() => {
-        dispatch(fetchDeposit());
-    }, [dispatch]);
+        dispatch(fetchDepositByMember(id));
+    }, [dispatch, id]);
 
     return (
         <Table striped bordered hover responsive>
@@ -32,13 +33,7 @@ export default function Deposit() {
                             <tr key={item._id}>
                                 <td>{item._id}</td>
                                 <td>{item.memberID.fullname}</td>
-                                <td>
-                                    <Link
-                                        to={`/dashboard-deposit/${item.memberID._id}`}
-                                    >
-                                        {item.memberID.email}
-                                    </Link>
-                                </td>
+                                <td>{item.memberID.email}</td>
                                 <td>{item.previousBalance}</td>
                                 <td>{item.amount}</td>
                                 <td>
