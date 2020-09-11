@@ -22,6 +22,7 @@ export default function Deposit() {
                     <th>Previous Balance</th>
                     <th>Amount</th>
                     <th>Current Balance</th>
+                    <th>Status</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -46,6 +47,7 @@ export default function Deposit() {
                                         ? item.memberID.balance
                                         : item.balance}
                                 </td>
+                                <td>{item.status}</td>
                                 <td>
                                     {item.status === "PENDING" && (
                                         <React.Fragment>

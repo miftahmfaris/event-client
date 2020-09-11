@@ -1,5 +1,6 @@
 export { default as DashboardDeposit } from "./DashboardDeposit";
 export { default as DashboardDepositMember } from "./DashboardDepositMember";
+export { default as DashboardEvent } from "./DashboardEvent";
 export { default as Deposit } from "./Deposit";
 export { default as EditProfile } from "./EditProfile";
 export { default as ForgetPassword } from "./ForgetPassword";

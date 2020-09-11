@@ -7,5 +7,6 @@ export { default as FormRegister } from "./Form/Register";
 export { default as FormForgetPassword } from "./Form/ForgetPassword";
 export { default as ListDeposit } from "./ListDashboard/Deposit";
 export { default as ListDepositMember } from "./ListDashboard/DepositMember";
+export { default as ListEvent } from "./ListDashboard/Event";
 export { default as Navbar } from "./Navbar";
 export { default as Tagline } from "./Tagline";
