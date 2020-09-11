@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 import { Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Section, FormCenter } from "../components/styled";
 import { fetchMember } from "../redux/actions";
 
@@ -51,6 +51,7 @@ const Additional = styled.div`
 export default function Profile() {
     const dispatch = useDispatch();
     const member = useSelector((state) => state.members.loggedInMember);
+    const { id } = useParams();
 
     useEffect(() => {
         dispatch(fetchMember());
@@ -72,16 +73,22 @@ export default function Profile() {
                                 <p>Balance: {member.balance}</p>
                             </Biodata>
                         </MemberProfile>
-                        <Additional>
-                            <Link to="/edit-profile">
-                                <Button variant="secondary">
-                                    Edit Profile
-                                </Button>
-                            </Link>
-                            <Link to="/add-deposit">
-                                <Button variant="primary">Add Deposit</Button>
-                            </Link>
-                        </Additional>
+                        {id === undefined ? (
+                            <Additional>
+                                <Link to="/edit-profile">
+                                    <Button variant="secondary">
+                                        Edit Profile
+                                    </Button>
+                                </Link>
+                                <Link to="/add-deposit">
+                                    <Button variant="primary">
+                                        Add Deposit
+                                    </Button>
+                                </Link>
+                            </Additional>
+                        ) : (
+                            <div></div>
+                        )}
                     </Border>
                 </div>
             </Container>

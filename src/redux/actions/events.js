@@ -95,7 +95,7 @@ const sort = (by, service, action) => async (dispatch) => {
     try {
         const split = by.split("-");
         const token = localStorage.getItem("token");
-        const url = `${process.env.REACT_APP_API_URL}/${service}/sort?by=${split[0]}&sort=${split[1]}`;
+        const url = `${process.env.REACT_APP_API_URL}/${service}/sort?by=${split[0]}&sorting=${split[1]}`;
         const options = {
             method: "GET",
             headers: {

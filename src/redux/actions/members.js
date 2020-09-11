@@ -2,6 +2,7 @@ import Swal from "sweetalert2";
 import jwt_decode from "jwt-decode";
 
 const GET_LOGGED_IN_MEMBER = "GET_LOGGED_IN_MEMBER";
+const GET_MEMBER = "GET_MEMBER";
 const LOGOUT = "LOGOUT";
 
 const fetchMember = () => async (dispatch) => {
@@ -121,6 +122,27 @@ const updateMember = (formData, history) => async (dispatch) => {
     }
 };
 
+const fetchAllMember = () => async (dispatch) => {
+    try {
+        const token = localStorage.getItem("token");
+        const url = `${process.env.REACT_APP_API_URL}/members`;
+        const options = {
+            method: "GET",
+            headers: {
+                "Content-type": "application/json",
+                Authorization: `Bearer ${token}`,
+            },
+        };
+
+        const response = await fetch(url, options);
+        const result = await response.json();
+
+        dispatch({ type: GET_MEMBER, payload: result.data });
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 export {
     memberLogin,
     fetchMember,
@@ -128,4 +150,6 @@ export {
     logout,
     LOGOUT,
     updateMember,
+    GET_MEMBER,
+    fetchAllMember,
 };

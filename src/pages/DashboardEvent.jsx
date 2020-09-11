@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { ListEvent, FormSearch, FormSort } from "../components";
+import { ListEvent, FormSearch, SortEvent } from "../components";
 import {
     Section,
     FormCenter,
@@ -26,7 +26,7 @@ export default function DashboardEvent() {
                     <Action>
                         <SectionFilter>
                             <FormSearch service="events" action="GET_EVENT" />
-                            <FormSort service="events" action="GET_EVENT" />
+                            <SortEvent service="events" action="GET_EVENT" />
                         </SectionFilter>
                         <SectionButton>
                             <Button variant="primary">

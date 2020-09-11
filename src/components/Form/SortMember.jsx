@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { SelectInput } from "../styled";
 import { sort } from "../../redux/actions";
 
-export default function Deposit(props) {
+export default function SortMember(props) {
     const dispatch = useDispatch();
 
     return (
@@ -24,11 +24,11 @@ export default function Deposit(props) {
                             );
                         }}
                     >
-                        <option value="">Sort</option>
+                        <option value="createdAt-desc">Sort</option>
                         <option value="price-asc">Price Low - High</option>
                         <option value="price-desc">Price High - Low</option>
-                        <option value="createdAt-desc">Newest Create</option>
                         <option value="startAt-asc">Closer Event</option>
+                        <option value="endAt-desc">Longest Expired</option>
                     </Field>
                 </Form>
             )}

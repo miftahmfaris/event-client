@@ -14,6 +14,7 @@ import {
     DashboardDepositMember,
     DashboardEvent,
     AddEvent,
+    DashboardMember,
 } from "./pages";
 import { Navbar } from "./components";
 import { PrivateRoute, AdminRoute } from "./helpers";
@@ -53,6 +54,12 @@ function App() {
                     </AdminRoute>
                     <AdminRoute exact path="/add-event">
                         <AddEvent />
+                    </AdminRoute>
+                    <AdminRoute exact path="/dashboard-member">
+                        <DashboardMember />
+                    </AdminRoute>
+                    <AdminRoute exact path="/profile/:id">
+                        <Profile />
                     </AdminRoute>
                     <Route exact path="/forget-password">
                         <ForgetPassword />
