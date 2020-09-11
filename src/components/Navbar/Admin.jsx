@@ -25,6 +25,9 @@ export default function Admin(props) {
                     <Url to="/dashboard-member">Member</Url>
                 </li>
                 <li>
+                    <Url to="/dashboard-order">Order</Url>
+                </li>
+                <li>
                     <Url to="/dashboard-event">Event</Url>
                 </li>
                 <li>

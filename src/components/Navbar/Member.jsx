@@ -23,6 +23,12 @@ export default function Member(props) {
                     </Url>
                 </li>
                 <li>
+                    <Url to="/event">Event</Url>
+                </li>
+                <li>
+                    <Url to={`/dashboard-order/${member._id}`}>Order</Url>
+                </li>
+                <li>
                     <Url to={`/dashboard-deposit/${member._id}`}>Deposit</Url>
                 </li>
                 <li>

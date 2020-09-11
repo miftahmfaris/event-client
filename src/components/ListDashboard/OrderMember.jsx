@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 import { Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchDepositByMember } from "../../redux/actions";
+import { fetchOrderByMember } from "../../redux/actions";
 import { useParams } from "react-router-dom";
 
-export default function DepositMember() {
+export default function OrderMember() {
     const dispatch = useDispatch();
-    const deposit = useSelector((state) => state.deposits.memberDeposit);
+    const order = useSelector((state) => state.orders.memberOrder);
     const { id } = useParams();
 
     useEffect(() => {
-        dispatch(fetchDepositByMember(id));
+        dispatch(fetchOrderByMember(id));
     }, [dispatch, id]);
 
     return (
@@ -20,27 +20,25 @@ export default function DepositMember() {
                     <th>ID</th>
                     <th>Full Name</th>
                     <th>Email</th>
-                    <th>Previous Balance</th>
-                    <th>Amount</th>
-                    <th>Current Balance</th>
+                    <th>Ticket Number</th>
+                    <th>Event Name</th>
+                    <th>Ticket Price</th>
+                    <th>Event Location</th>
                     <th>Status</th>
                 </tr>
             </thead>
             <tbody>
-                {deposit.length > 0 &&
-                    deposit.map((item) => {
+                {order.length > 0 &&
+                    order.map((item) => {
                         return (
                             <tr key={item._id}>
                                 <td>{item._id}</td>
                                 <td>{item.memberID.fullname}</td>
                                 <td>{item.memberID.email}</td>
-                                <td>{item.previousBalance}</td>
-                                <td>{item.amount}</td>
-                                <td>
-                                    {item.status === "PENDING"
-                                        ? item.memberID.balance
-                                        : item.balance}
-                                </td>
+                                <td>{item.ticketNumber}</td>
+                                <td>{item.eventID.name}</td>
+                                <td>{item.eventID.price}</td>
+                                <td>{item.eventID.location}</td>
                                 <td>{item.status}</td>
                             </tr>
                         );

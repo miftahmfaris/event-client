@@ -27,6 +27,8 @@ export default function Deposit() {
                 image: event.image || "",
                 startAt: moment(event.startAt).format("YYYY-MM-DD") || "",
                 endAt: moment(event.endAt).format("YYYY-MM-DD") || "",
+                location: event.location || "",
+                description: event.description || "",
             }}
             validationSchema={EventSchema}
             enableReinitialize={true}
@@ -39,6 +41,16 @@ export default function Deposit() {
                     <Field
                         name="name"
                         placeholder="Input your name event here"
+                        component={TextInput}
+                    />
+                    <Field
+                        name="description"
+                        placeholder="Input your description event here"
+                        component={TextInput}
+                    />
+                    <Field
+                        name="location"
+                        placeholder="Input your location event here"
                         component={TextInput}
                     />
                     <Field

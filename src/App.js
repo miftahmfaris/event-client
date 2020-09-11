@@ -16,6 +16,10 @@ import {
     AddEvent,
     DashboardMember,
     EditEvent,
+    Event,
+    Order,
+    DashboardOrder,
+    DashboardOrderMember,
 } from "./pages";
 import { Navbar } from "./components";
 import { PrivateRoute, AdminRoute } from "./helpers";
@@ -62,12 +66,24 @@ function App() {
                     <AdminRoute exact path="/profile/:id">
                         <Profile />
                     </AdminRoute>
-                    <AdminRoute exact path="/event/:id">
+                    <AdminRoute exact path="/edit-event/:id">
                         <EditEvent />
                     </AdminRoute>
                     <Route exact path="/forget-password">
                         <ForgetPassword />
                     </Route>
+                    <Route exact path="/event">
+                        <Event />
+                    </Route>
+                    <PrivateRoute exact path="/order/:id">
+                        <Order />
+                    </PrivateRoute>
+                    <PrivateRoute exact path="/dashboard-order">
+                        <DashboardOrder />
+                    </PrivateRoute>
+                    <PrivateRoute exact path="/dashboard-order/:id">
+                        <DashboardOrderMember />
+                    </PrivateRoute>
                     <Route path="*">
                         <Home />
                     </Route>

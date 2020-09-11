@@ -6,7 +6,7 @@ import { Button } from "react-bootstrap";
 import moment from "moment";
 import { Link } from "react-router-dom";
 
-export default function Deposit() {
+export default function Event() {
     const dispatch = useDispatch();
     const event = useSelector((state) => state.events.allEvent);
 
@@ -54,7 +54,7 @@ export default function Deposit() {
                                 <td>{item.updatedBy}</td>
                                 <td>
                                     {
-                                        <Link to={`event/${item._id}`}>
+                                        <Link to={`/edit-event/${item._id}`}>
                                             <Button
                                                 variant="success"
                                                 style={{ margin: "5px" }}

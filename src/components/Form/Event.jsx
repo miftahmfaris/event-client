@@ -19,6 +19,8 @@ export default function Deposit() {
                 image: "",
                 startAt: "",
                 endAt: "",
+                location: "",
+                description: "",
             }}
             validationSchema={EventSchema}
             onSubmit={(values, actions) => {
@@ -30,6 +32,16 @@ export default function Deposit() {
                     <Field
                         name="name"
                         placeholder="Input your name event here"
+                        component={TextInput}
+                    />
+                    <Field
+                        name="description"
+                        placeholder="Input your description event here"
+                        component={TextInput}
+                    />
+                    <Field
+                        name="location"
+                        placeholder="Input your location event here"
                         component={TextInput}
                     />
                     <Field
